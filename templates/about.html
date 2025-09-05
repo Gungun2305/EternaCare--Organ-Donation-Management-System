@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About EternaCare</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fdf8f4;
+            color: #333;
+        }
+        header {
+            background-color:white;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        header img {
+            width: 150px;
+            height: auto;
+            display: block;
+            margin: 0 auto 10px auto;
+        }
+        main {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h2 {
+            color:#006d77;
+        }
+        h1 {
+            color:black;
+        }
+        p {
+            line-height: 1.6;
+            margin: 20px 0;
+        }
+        .mission, .vision, .purpose {
+            margin: 30px 0;
+            padding: 20px;
+            border-left: 4px solid #83c5be;
+            background-color: #f4f4f9;
+            border-radius: 5px;
+        }
+        footer {
+            background-color: #006d77;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 30px;
+        }
+        a {
+            color: #006d77;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='C.png') }}" alt="EternaCare Logo">
+        <h1>About EternaCare</h1>
+    </header>
+    <main>
+        <h2>Our Mission</h2>
+        <div class="mission">
+            <p>At EternaCare, our mission is to bridge the gap between organ donors and recipients by providing a transparent and efficient platform that connects people in need with generous donors.</p>
+        </div>
+        
+        <h2>Our Vision</h2>
+        <div class="vision">
+            <p>We envision a world where every individual in need of an organ transplant finds a matching donor in time, saving countless lives through compassionate and accessible organ donation.</p>
+        </div>
+        
+        <h2>Purpose of EternaCare</h2>
+        <div class="purpose">
+            <p>EternaCare was founded to simplify the organ donation process, bringing hope to those in need by ensuring a streamlined and secure system. We aim to educate, empower, and engage communities to become part of a life-saving network.</p>
+        </div>
+        
+        <p>To learn more about how you can get involved or become a donor, please <a href="http://127.0.0.1:5000/Contact_Us">contact us</a>.</p>
+    </main>
+    <footer>
+        &copy; 2024 EternaCare. All rights reserved.
+    </footer>
+</body>
+</html>

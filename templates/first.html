@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EternaCare - Main Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fdf8f4; /* Light beige background */
+            color: #333;
+            text-align: center;
+        }
+        header {
+            padding: 20px;
+            color: #333;
+        }
+        header img {
+            width: 350px; /* Adjust size as needed */
+            height: auto;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding: 10px;
+            background-color: #83c5be;
+        }
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+        main {
+            padding: 50px 20px;
+        }
+        .card {
+            display: inline-block;
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            text-align: center;
+            background-color: white;
+        }
+        .card a {
+            display: block;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #006d77;
+            font-weight: bold;
+        }
+        .card a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            background-color: #006d77;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert {{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+    {% endwith %}
+
+    <header>
+        <img src="{{ url_for('static', filename='C.png') }}" alt="EternaCare Logo"> <!-- Logo added here -->
+        <h1>Welcome to EternaCare</h1>
+        <p>Where Hope Meets Healing</p>
+    </header>
+    <main>
+        <div class="card">
+            <a href="http://127.0.0.1:5000/about"><h2>About Us</h2><img src="{{ url_for('static', filename='about_us.png') }}" alt="about_us Logo" style="width:200px; height:auto;"></a>
+            <p>Learn more about our mission and vision.</p>
+        </div>
+        <div class="card">
+            <a href="http://127.0.0.1:5000/donors"><h2>Donors</h2><img src="{{ url_for('static', filename='donor_registration.png') }}" alt="donors Logo" style="width:200px; height:auto;"></a>
+            <p>View and manage donor information.</p>
+        </div>
+        <div class="card">
+            <a href="http://127.0.0.1:5000/Recipients"><h2>Recipients</h2><img src="{{ url_for('static', filename='recipients.png') }}" alt="recipient Logo" style="width:200px; height:auto;"></a>
+            <p>View and manage recipient information.</p>
+        </div>
+        <div class="card">
+            <a href="http://127.0.0.1:5000/Contact_Us"><h2>Contact Us</h2><img src="{{ url_for('static', filename='image2.png') }}" alt="Contact_Us Logo" style="width:200px; height:auto;"></a>
+            <p>Reach out for inquiries or support.</p>
+        </div>
+    </main>
+    <footer>
+        &copy; 2024 EternaCare. All rights reserved.
+    </footer>
+    <script>
+        // Hide the flash message after 5 seconds
+        setTimeout(function() {
+            var flashMessage = document.querySelector('.alert');
+            if (flashMessage) {
+                flashMessage.style.display = 'none';
+            }
+        }, 5000);  // 1000 ms = 1 s
+    </script>
+</body>
+</html>

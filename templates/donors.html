@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donor Registration - EternaCare</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fdf8f4;
+            color: #333;
+        }
+        header {
+            background-color:white#006d77;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        header img {
+            width: 150px;
+            height: auto;
+            display: block;
+            margin: 0 auto 10px auto;
+        }
+        main {
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color:#006d77;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color:black;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="number"],
+        input[type="email"],
+        select,
+        textarea {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            padding: 12px;
+            background-color: #006d77;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #004f58;
+        }
+        footer {
+            background-color: #006d77;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='C.png') }}" alt="EternaCare Logo">
+        <h1>Donor Registration</h1>
+    </header>
+    <main>
+        <h2>Become a Donor</h2>
+        <p>Please fill in the following details to register as an organ donor. Your information will help us match you with potential recipients in need.</p>
+        <form action="{{ url_for('donor_registration') }}" method="POST">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="age">Age</label>
+            <input type="number" id="age" name="age" min="18" required>
+
+            <label for="blood-type">Blood Type</label>
+            <select id="blood-type" name="blood_type" required>
+                <option value="">Select Blood Type</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+            </select>
+
+            <label for="organ-needed">Organ to Donate</label>
+            <select id="organ-needed" name="organ_needed" required>
+                <option value="">Select Organ</option>
+                <option value="Kidney">Kidney</option>
+                <option value="Liver">Liver</option>
+                <option value="Heart">Heart</option>
+                <option value="Lung">Lung</option>
+                <option value="Pancreas">Pancreas</option>
+                <option value="Cornea">Cornea</option>
+            </select>
+
+            <label for="email">Contact Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Additional Information (optional)</label>
+            <textarea id="message" name="message" rows="4" placeholder="Any additional information about your medical history..."></textarea>
+
+            <input type="submit" value="Submit Registration">
+        </form>
+    </main>
+    <footer>
+        &copy; 2024 EternaCare. All rights reserved.
+    </footer>
+</body>
+</html>
